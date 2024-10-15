@@ -3,10 +3,13 @@ import { csrfFetch } from './csrf';
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import { setUser } from './session';
+import SpotsReducer from './spots';
 
 const rootReducer = combineReducers({
-  session: sessionReducer
+  session: sessionReducer,
+  spot: SpotsReducer
 });
+
 
 let enhancer;
 if (import.meta.env.MODE === "production") {

@@ -3,16 +3,27 @@ import { useDispatch } from 'react-redux';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import Navigation from './components/Navigation';
 import * as sessionActions from './store/session';
+// import SpotList from './components/SpotList';
+// import { getAllSpots } from './store/spots';
+
 
 function Layout() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => {
       setIsLoaded(true)
     });
   }, [dispatch]);
+
+
+  // useEffect( () => {
+  //   dispatch(getAllSpots());
+    
+  // }, [dispatch]);
+
 
   return (
     <>
@@ -29,7 +40,15 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <h1>Welcome!</h1>
-      }
+      },
+      // {
+      //   path: '/testhome',
+      //   element: <>
+      //             <h2>THIS IS A TEST</h2>
+      //             <SpotList />
+      //           </>
+      // }
+      
     ]
   }
 ]);
