@@ -80,3 +80,25 @@ module.exports = {
  
   },
 };
+
+
+
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await SpotImage.bulkCreate(demoSpotImages);
+  },
+
+  async down(queryInterface, Sequelize) {
+    options.tableName = 'SpotImages';  // Add the table name to the options
+    const Op = Sequelize.Op;
+
+    return queryInterface.bulkDelete(
+      options, // Pass the options object
+      {
+        spotId: { [Op.in]: spotImagesDelete }, // Properly structured where clause
+      },
+      {}
+    );
+  },
+};

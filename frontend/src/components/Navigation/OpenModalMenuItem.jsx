@@ -1,6 +1,6 @@
 // frontend/src/components/Navigation/OpenModalMenuItem.jsx
 
-import React from 'react';
+// import React from 'react';
 import { useModal } from '../../context/Modal';
 
 function OpenModalMenuItem({

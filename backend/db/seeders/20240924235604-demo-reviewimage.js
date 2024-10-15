@@ -55,35 +55,19 @@ const reviewImagesDelete = demoReviewImages.map( (reviewImage) => {
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    /**
-     * Add seed commands here.
-     *
-     * Example:
-     * await queryInterface.bulkInsert('People', [{
-     *   name: 'John Doe',
-     *   isBetaMember: false
-     * }], {});
-     */
-
-
     await ReviewImage.bulkCreate(demoReviewImages);
   },
 
   async down(queryInterface, Sequelize) {
-    
-    options.tableName = 'ReviewImages';
+    options.tableName = 'ReviewImages';  // Add the table name to the options
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, 
-      { where: { 
 
-      reviewId: { [Op.in]: reviewImagesDelete }
-    } 
-  });
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    return queryInterface.bulkDelete(
+      options, // Pass the options object
+      {
+        reviewId: { [Op.in]: reviewImagesDelete }, // Properly structured where clause
+      },
+      {}
+    );
   },
 };
