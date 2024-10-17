@@ -4,10 +4,12 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import { setUser } from './session';
 import SpotsReducer from './spots';
+import ReviewsReducer from './reviews';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  spot: SpotsReducer
+  spot: SpotsReducer,
+  reviews: ReviewsReducer
 });
 
 

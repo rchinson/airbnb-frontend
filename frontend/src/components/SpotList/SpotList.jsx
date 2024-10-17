@@ -1,6 +1,6 @@
 import './SpotList.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllSpots } from '../../store/spots';
+import { getAllSpotsThunk } from '../../store/spots';
 import { useEffect } from 'react';
 
 
@@ -12,7 +12,7 @@ function SpotList() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getAllSpots());
+        dispatch(getAllSpotsThunk());
     }, [dispatch]);
 
 

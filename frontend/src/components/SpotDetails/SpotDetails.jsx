@@ -1,7 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { getSpotDetails } from '../../store/spots'
+import { getSpotDetailsThunk } from '../../store/spots'
+import SpotImages from '../SpotImages/SpotImages';
+
 
 
 function SpotDetails() {
@@ -17,7 +19,7 @@ function SpotDetails() {
 
 
     useEffect( () => {
-        dispatch(getSpotDetails(spotId))
+        dispatch(getSpotDetailsThunk(spotId))
 
     }, [dispatch, spotId])
 
@@ -28,10 +30,11 @@ function SpotDetails() {
 
     return (
         <div>
-            <div>
+            <div className='spot-details-container'>
                 <h1>{spot?.name}</h1>
                 <p>{spot?.city}, {spot?.state}, {spot?.country}</p>
             </div>
+            <SpotImages spotId={spotId} />
         
         </div>
     )

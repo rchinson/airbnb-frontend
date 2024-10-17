@@ -46,7 +46,6 @@ const demoReviews = [
     review: "AVERAGE",
     stars: 3,
   },
-
   {
     userId: 3,
     spotId: 2,
