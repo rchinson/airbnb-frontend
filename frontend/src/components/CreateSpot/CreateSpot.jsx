@@ -3,6 +3,9 @@ import { nanoid } from 'nanoid';
 
 import { useDispatch } from 'react-redux';
 
+import { createSpot } from '../../store/spots'
+
+
 
 const CreateSpot = () => {
     const dispatch = useDispatch();
@@ -15,6 +18,7 @@ const CreateSpot = () => {
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+
 
 
     const handleSubmit = (e) => {
@@ -32,10 +36,17 @@ const CreateSpot = () => {
             imageUrl
         };
 
-        dispatch(addSpot(newSpot));
+        dispatch(createSpot(newSpot));
 
+
+        
         reset();
     };
+
+
+
+
+
 
     const reset = () => {
         setCountry('');
@@ -86,13 +97,14 @@ const CreateSpot = () => {
                     name='state' 
                 />
 
-                <input 
+                <textarea
                     type='text'
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
                     placeholder='Description'
-                    name='description' 
-                />
+                    name='description'
+                    rows='8'
+                ></textarea>
 
                 <input 
                     type='text'
@@ -105,7 +117,7 @@ const CreateSpot = () => {
                 <input 
                     type='text'
                     onChange={(e) => setPrice(e.target.value)}
-                    value={description}
+                    value={price}
                     placeholder= 'Price'
                     name='price' 
                 />
@@ -113,14 +125,16 @@ const CreateSpot = () => {
                 <input 
                     type='text'
                     onChange={(e) => setImageUrl(e.target.value)}
-                    value={title}
+                    value={imageUrl}
                     placeholder='imageUrl'
                     name='imageUrl' 
                 />
 
-
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )
 
 }
+
+export default CreateSpot;

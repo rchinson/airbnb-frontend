@@ -6,12 +6,10 @@ import { getSpotDetails } from '../../store/spots'
 
 function SpotDetails() {
     const { spotId } = useParams();
-
     const dispatch = useDispatch();
 
-    console.log("SPOT ID ___ ",spotId)
 
-    const spot = useSelector( (state) => state.spots?.spotDetails)
+    const spot = useSelector( (state) => state.spot?.spotDetails[spotId])
 
     console.log("SPOT SELECTOR ___ ",spot)
 
@@ -24,9 +22,9 @@ function SpotDetails() {
     }, [dispatch, spotId])
 
     
-    if (!spot) {
-        return <p>Loading</p>
-    }
+    // if (!spot) {
+    //     return <p>Loading</p>
+    // }
 
     return (
         <div>
