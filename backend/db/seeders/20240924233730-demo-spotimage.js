@@ -18,7 +18,7 @@ const demoSpotImages = [
 
   {
     spotId: 2,
-    url: "https://en.wikipedia.org/wiki/Miami_Beach,_Florida#/media/File:Miamimetroarea.jpg",
+    url: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Miamimetroarea.jpg",
     preview: true,
   },
 
@@ -42,7 +42,7 @@ const demoSpotImages = [
 
   {
     spotId: 6,
-    url: "https://en.wikipedia.org/wiki/Golden_Gate_Bridge#/media/File:Golden_Gate_Bridge_as_seen_from_Battery_East.jpg",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Golden_Gate_Bridge_as_seen_from_Battery_East.jpg/1280px-Golden_Gate_Bridge_as_seen_from_Battery_East.jpg",
     preview: true,
   },
 
@@ -54,7 +54,7 @@ const demoSpotImages = [
 
   {
     spotId: 8,
-    url: "https://en.wikipedia.org/wiki/Statue_of_Liberty#/media/File:Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg",
+    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg/800px-Front_view_of_Statue_of_Liberty_with_pedestal_and_base_2024.jpg",
     preview: true,
   },
 ]

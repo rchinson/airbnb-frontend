@@ -6,14 +6,10 @@ import { useEffect } from 'react';
 
 
 function SpotList() {
-
     const spots = useSelector((state) => state.spot.allSpots)
-    console.log(spots)
     const spotsArr = Object.values(spots)
-    // console.log(spotsArr)
 
     const dispatch = useDispatch();
-
 
     useEffect(() => {
         dispatch(getAllSpots());
@@ -29,7 +25,7 @@ function SpotList() {
                     <div key={spot.id} >
                        
                     <div>{spot.name}</div>
-                    <img src={spot.previewImage} alt={spot.name} />
+                    <img className='spot-image' src={spot.previewImage} alt={spot.name} />
                     
                     <div>
                         <p>
