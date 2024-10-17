@@ -1,3 +1,4 @@
+import { csrfFetch } from "./csrf";
 
 const ALL_SPOTS = 'spots/ALL_SPOTS';
 const CLEAR_SPOTS = 'spots/CLEAR_SPOTS';
@@ -48,6 +49,24 @@ export const createSpot = (payload) => {
         type: CREATE_SPOT,
         payload
     }
+}
+
+export const CreateSpotThunk = (spotData, navigate) => async () => {
+
+    console.log("THUNK-----",spotData)
+    const res = await csrfFetch('/api/spots', {
+        method: "POST",
+        body: JSON.stringify(spotData)
+    })
+    
+    if (res.ok) {
+        console.log(spotData)
+        const newSpot = await res.json();
+
+        navigate(`/spots/${newSpot.id}`)
+        return newSpot;
+    }
+
 }
 
 

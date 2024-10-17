@@ -34,8 +34,8 @@ const validateSpot = [
   check("country")
     .exists({ checkFalsy: true })
     .withMessage("Please provide a valid country."),
-  check("lat").isDecimal().withMessage("Latitude must be a decimal value."),
-  check("lng").isDecimal().withMessage("Longitude must be a decimal value."),
+  // check("lat").isDecimal().withMessage("Latitude must be a decimal value."),
+  // check("lng").isDecimal().withMessage("Longitude must be a decimal value."),
   check("name")
     .exists({ checkFalsy: true })
     .isLength({ max: 50 })
@@ -497,7 +497,7 @@ router.post("/:spotId/images", requireAuth, async (req, res) => {
 
 
 router.post("/", validateSpot, requireAuth, async (req, res) => {
-  const { address, city, state, country, lat, lng, name, description, price } =
+  const { address, city, state, country, name, description, price } =
     req.body;
 
   const { user } = req;
@@ -508,11 +508,12 @@ router.post("/", validateSpot, requireAuth, async (req, res) => {
     !city ||
     !state ||
     !country ||
-    !lat ||
-    !lng ||
+    // !lat ||
+    // !lng ||
     !name ||
     !description ||
     !price
+    
   ) {
     return res.status(400).json({
       message: "Bad Request",
@@ -521,8 +522,8 @@ router.post("/", validateSpot, requireAuth, async (req, res) => {
         city: !city ? "City is required." : undefined,
         state: !state ? "State is required." : undefined,
         country: !country ? "Country is required." : undefined,
-        lat: !lat ? "Latitude is required." : undefined,
-        lng: !lng ? "Longitude is required." : undefined,
+        // lat: !lat ? "Latitude is required." : undefined,
+        // lng: !lng ? "Longitude is required." : undefined,
         name: !name ? "Name is required." : undefined,
         description: !description ? "Description is required." : undefined,
         price: !price ? "Price is required." : undefined,
@@ -538,8 +539,8 @@ router.post("/", validateSpot, requireAuth, async (req, res) => {
       city,
       state,
       country,
-      lat,
-      lng,
+      // lat,
+      // lng,
       name,
       description,
       price,

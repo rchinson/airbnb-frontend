@@ -1,17 +1,18 @@
 import { useState } from 'react';
-import { nanoid } from 'nanoid';
 
 import { useDispatch } from 'react-redux';
 
-import { createSpot } from '../../store/spots'
+import { CreateSpotThunk } from '../../store/spots';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const CreateSpot = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const [country, setCountry] = useState('');
-    const [streetAddress, setStreetAddress] = useState('');
+    const [address, setAddress] = useState('');
     const [city, setCity] = useState('');
     const [state, setState] = useState('');
     const [description, setDescription] = useState('');
@@ -25,21 +26,19 @@ const CreateSpot = () => {
         e.preventDefault();
 
         const newSpot = {
-            id: nanoid(),
+            name: title,
             country,
-            streetAddress,
+            address,
             city,
             state,
             description,
-            title,
             price,
-            imageUrl
         };
 
-        dispatch(createSpot(newSpot));
+        console.log("createspotJSX-----", newSpot)
+        dispatch(CreateSpotThunk(newSpot, navigate));
 
-
-        
+ 
         reset();
     };
 
@@ -50,7 +49,7 @@ const CreateSpot = () => {
 
     const reset = () => {
         setCountry('');
-        setStreetAddress('');
+        setAddress('');
         setCity('');
         setState('');
         setDescription('');
@@ -75,8 +74,8 @@ const CreateSpot = () => {
 
                 <input 
                     type='text'
-                    onChange={(e) => setStreetAddress(e.target.value)}
-                    value={streetAddress}
+                    onChange={(e) => setAddress(e.target.value)}
+                    value={address}
                     placeholder='Street Address'
                     name='streetAddress' 
                 />

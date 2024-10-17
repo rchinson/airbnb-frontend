@@ -70,6 +70,7 @@ app.use((_req, _res, next) => {
     }
     next(err);
   });
+  
   app.use((err, _req, res, _next) => {
     res.status(err.status || 500);
     console.error(err);
