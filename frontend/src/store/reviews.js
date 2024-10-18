@@ -1,4 +1,4 @@
-import { csrfFetch } from './csrf';
+// import { csrfFetch } from './csrf';
 
 const ALL_REVIEWS = 'reviews/ALL_REVIEWS';
 
@@ -10,7 +10,7 @@ const getAllReviews = reviews => ({
 
 
 export const getAllReviewsThunk = (spotId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/spots/${spotId}/reviews`);
+    const res = await fetch(`/api/spots/${spotId}/reviews`);
 
     if (res.ok) {
         const payload = await res.json();

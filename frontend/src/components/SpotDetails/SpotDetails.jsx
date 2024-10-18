@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getSpotDetailsThunk } from '../../store/spots'
 import SpotImages from '../SpotImages/SpotImages';
+import Reviews from '../Reviews/Reviews';
 
 
 
@@ -13,7 +14,7 @@ function SpotDetails() {
 
     const spot = useSelector( (state) => state.spot?.spotDetails[spotId])
 
-    console.log("SPOT SELECTOR ___ ",spot)
+    // console.log("SPOT SELECTOR ___ ",spot)
 
 
 
@@ -35,7 +36,11 @@ function SpotDetails() {
                 <p>{spot?.city}, {spot?.state}, {spot?.country}</p>
             </div>
             <SpotImages spotId={spotId} />
-        
+
+            <div></div>
+
+            <Reviews />
+
         </div>
     )
 
