@@ -10,27 +10,20 @@ const Reviews = () => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
 
+    console.log("SPOTid=====",spotId)
 
     const reviews = useSelector( (state) => state.reviews.reviews)
 
-    // console.log("REVIEWS", reviews)
-    // const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
+
+    console.log("REVIEWS------>", reviews)
 
     reviews.forEach( (element) => {
-        console.log('SPOT ID ===========',spotId)
-
-        console.log('element',element)
-        console.log("ELEMENT SPOT ID ==",element.spotId)
 
         if (element.spotId === spotId) {
             console.log('YES')
         }
 
     })
-
-    // console.log("ALLREVIEWS=====",reviewArr)
-    
-    // console.log("SPOT_REVIEW_ID",reviews.spotId)
 
 
     useEffect( () => {

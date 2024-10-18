@@ -35,7 +35,7 @@ const CreateSpot = () => {
             price,
         };
 
-        console.log("createspotJSX-----", newSpot)
+        // console.log("createspotJSX-----", newSpot)
         dispatch(CreateSpotThunk(newSpot, navigate));
 
  
