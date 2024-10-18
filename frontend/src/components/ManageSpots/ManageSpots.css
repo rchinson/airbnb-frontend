@@ -1,0 +1,17 @@
+.manage-spots-container {
+    display: flex;
+    /* height: 600px; */
+    flex-wrap: wrap;
+
+    align-content: space-around;
+    border: 1px solid red;
+}
+
+.manage-single-spot {
+    width: 200px;
+    margin: 30px 30px 30px 30px;
+}
+
+.manage-spot-image {
+    max-width: 40%;
+}

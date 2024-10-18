@@ -1,3 +1,23 @@
+.spots-container {
+    display: flex;
+    /* height: 600px; */
+    flex-wrap: wrap;
+
+    align-content: space-around;
+    border: 1px solid black;
+}
+
+.single-spot {
+    width: 200px;
+    margin: 30px 30px 30px 30px;
+    border: 1px solid red;
+}
+
 .spot-image {
-    max-width: 80%;
+    max-width: 40%;
+}
+
+.single-spot-location-rating {
+    display: flex;
+    justify-content: space-between;
 }

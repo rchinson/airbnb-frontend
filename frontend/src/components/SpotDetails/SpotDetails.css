@@ -1,0 +1,11 @@
+.spot-details-wrapper {
+    width: 100%;
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+}
+
+.spot-details-container {
+    max-width: 1000px;
+    border: 1px solid black;
+}

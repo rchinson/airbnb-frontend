@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { getSpotDetailsThunk } from '../../store/spots'
 import SpotImages from '../SpotImages/SpotImages';
 import Reviews from '../Reviews/Reviews';
+import './SpotDetails.css'
 
 
 
@@ -25,22 +26,28 @@ function SpotDetails() {
     }, [dispatch, spotId])
 
     
-    // if (!spot) {
-    //     return <p>Loading</p>
-    // }
+    if (!spot) {
+        return <p>Loading</p>
+    }
 
     return (
-        <div>
+        <div className='spot-details-wrapper'>
+
             <div className='spot-details-container'>
-                <h1>{spot?.name}</h1>
-                <p>{spot?.city}, {spot?.state}, {spot?.country}</p>
+                
+                <div>
+                    <h1>{spot?.name}</h1>
+                    <p>{spot?.city}, {spot?.state}, {spot?.country}</p>
+                </div>
+                
+                <SpotImages spotId={spotId} />
+
+                <div></div>
+
+                <Reviews />
+
             </div>
-            <SpotImages spotId={spotId} />
-
-            <div></div>
-
-            <Reviews />
-
+            
         </div>
     )
 

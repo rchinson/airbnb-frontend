@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 
 import { getUserSpotsThunk } from '../../store/spots';
+import './ManageSpots.css'
 // import { useNavigate } from 'react-router-dom';
 
 
@@ -25,10 +26,8 @@ const ManageSpots = () => {
 
     return(
         <>
-            <div>HELLO</div>
-            <div className='manage-spots-container'>
 
-                <div className='manage-spots-list'>
+            <div className='manage-spots-container'>
 
                     {userSpots.map( (spot) => (
                         <div key={spot.id}
@@ -43,8 +42,7 @@ const ManageSpots = () => {
 
                         </div>
                     ))}
-    
-                </div>
+
             </div>
         </>
     )
