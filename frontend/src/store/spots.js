@@ -7,6 +7,9 @@ const CREATE_SPOT = 'spots/CREATE_SPOT';
 
 const ADD_SPOT_IMAGE = 'spots/ADD_SPOT_IMAGE'
 
+const GET_USER_SPOTS = 'spots/GET_USER_SPOTS'
+
+
 
 const spotDetails = payload => ({
     type: SPOT_DETAILS,
@@ -21,6 +24,11 @@ const allSpots = payload => ({
 const addImage = image => ({
     type: ADD_SPOT_IMAGE,
     image
+})
+
+const getUserSpots = spots => ({
+    type: GET_USER_SPOTS,
+    payload: spots
 })
 
 
@@ -38,6 +46,15 @@ export const createSpot = (payload) => {
 }
 
 
+
+export const getUserSpotsThunk = () => async (dispatch) => {
+    const res = await csrfFetch('/api/spots/current');
+
+    if (res.ok) {
+        const userSpots = await res.json();
+        dispatch(getUserSpots(userSpots))
+    }
+}
 
 export const getSpotDetailsThunk = (spotId) => async (dispatch) => {
     const res = await fetch(`/api/spots/${spotId}`)
@@ -71,7 +88,6 @@ export const CreateSpotThunk = (spotData, navigate) => async () => {
         navigate(`/spots/${newSpot.id}`)
         return newSpot;
     }
-
 }
 
 export const addImageThunk = (spotId, image) => async (dispatch) => {
