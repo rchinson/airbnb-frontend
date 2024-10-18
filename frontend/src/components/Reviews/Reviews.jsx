@@ -10,21 +10,23 @@ const Reviews = () => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
 
-    console.log("SPOTid=====",spotId)
+    // console.log("SPOTid=====",spotId)
 
     const reviews = useSelector( (state) => state.reviews.reviews)
 
+    // console.log("REVIEWS------>", reviews)
 
-    console.log("REVIEWS------>", reviews)
+    const userReviews = [];
 
     reviews.forEach( (element) => {
-
-        if (element.spotId === spotId) {
-            console.log('YES')
+        // console.log("ELEMENT=====",typeof element.spotId)
+        // console.log("SPOTID=====",typeof spotId)
+        if (element.spotId === parseInt(spotId)) {
+            userReviews.push(element)
         }
-
     })
 
+    console.log("===AFTER FOREACH REVIEWS",userReviews)
 
     useEffect( () => {
         dispatch(getAllReviewsThunk(spotId))
@@ -33,7 +35,7 @@ const Reviews = () => {
     return(
         <div className="reviews-container">
 
-            {reviews.map( (review) => (
+            {userReviews.map( (review) => (
                 <div key={review.id} className="single-review-container">
                     
                     <h3>{review.User?.firstName}</h3>

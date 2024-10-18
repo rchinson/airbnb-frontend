@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import './SpotImages.css';
 
 const SpotImages = ({ spotId }) => {
     const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
