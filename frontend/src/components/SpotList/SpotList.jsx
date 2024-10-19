@@ -48,7 +48,7 @@ function SpotList() {
                             {spot.avgRating ? spot.avgRating : "new"}
                         </p>
                     </div>
-                        <p>{`$${spot.price} per night`}</p>
+                        <p>{`$${spot.price}night`}</p>
                     </div>
                 ))}
             </div>

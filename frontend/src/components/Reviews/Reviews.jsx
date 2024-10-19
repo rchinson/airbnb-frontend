@@ -26,7 +26,7 @@ const Reviews = () => {
         }
     })
 
-    console.log("===AFTER FOREACH REVIEWS",userReviews)
+    // console.log("===AFTER FOREACH REVIEWS",userReviews)
 
     useEffect( () => {
         dispatch(getAllReviewsThunk(spotId))

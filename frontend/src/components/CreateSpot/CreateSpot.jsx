@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 import { CreateSpotThunk } from '../../store/spots';
 import { useNavigate } from 'react-router-dom';
+import './CreateSpot.css'
 
 
 
@@ -60,10 +61,10 @@ const CreateSpot = () => {
 
 
     return(
-        <div className='spot-input'>
+        <div className='spot-input-container'>
             <h1>Create a New Spot</h1>
-            <form onSubmit={handleSubmit}>
-
+            <form className='spot-input-form' onSubmit={handleSubmit}>
+                <div>Country</div>
                 <input 
                     type='text'
                     onChange={(e) => setCountry(e.target.value)}
@@ -71,7 +72,7 @@ const CreateSpot = () => {
                     placeholder='Country'
                     name='country' 
                 />
-
+                <div>Street Address</div>
                 <input 
                     type='text'
                     onChange={(e) => setAddress(e.target.value)}
@@ -79,7 +80,7 @@ const CreateSpot = () => {
                     placeholder='Street Address'
                     name='streetAddress' 
                 />
-
+                <div>City</div>
                 <input 
                     type='text'
                     onChange={(e) => setCity(e.target.value)}
@@ -87,7 +88,7 @@ const CreateSpot = () => {
                     placeholder='City'
                     name='city' 
                 />
-
+                <div>State</div>
                 <input 
                     type='text'
                     onChange={(e) => setState(e.target.value)}
@@ -96,7 +97,10 @@ const CreateSpot = () => {
                     name='state' 
                 />
 
-                <textarea
+                <hr></hr>
+
+                <div>Description</div>
+                <textarea   
                     type='text'
                     onChange={(e) => setDescription(e.target.value)}
                     value={description}
@@ -105,14 +109,20 @@ const CreateSpot = () => {
                     rows='8'
                 ></textarea>
 
+                <hr></hr>
+
+                <div>Title</div>
                 <input 
                     type='text'
                     onChange={(e) => setTitle(e.target.value)}
                     value={title}
                     placeholder='Title'
                     name='title' 
-                />
+                />  
 
+                <hr></hr>
+
+                <div>Price</div>
                 <input 
                     type='text'
                     onChange={(e) => setPrice(e.target.value)}
@@ -121,6 +131,9 @@ const CreateSpot = () => {
                     name='price' 
                 />
 
+                <hr></hr>
+
+                <div>Photos</div>
                 <input 
                     type='text'
                     onChange={(e) => setImageUrl(e.target.value)}
@@ -129,7 +142,7 @@ const CreateSpot = () => {
                     name='imageUrl' 
                 />
 
-                <button type='submit'>Submit</button>
+                <button className='submit-button' type='submit'>Submit</button>
             </form>
         </div>
     )

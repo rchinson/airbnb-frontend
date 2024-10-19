@@ -12,7 +12,7 @@ const getAllReviews = reviews => ({
 export const getAllReviewsThunk = (spotId) => async (dispatch) => {
     const res = await fetch(`/api/spots/${spotId}/reviews`);
 
-    console.log("RES======",res)
+    // console.log("RES======",res)
 
     if (res.ok) {
         const payload = await res.json();

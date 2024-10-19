@@ -16,11 +16,11 @@ function Navigation({ isLoaded }) {
 
 
 
-      {/* {isLoaded && ( */}
+      {isLoaded && (
         <li>
           <ProfileButton user={sessionUser} />
         </li>
-      {/* // )} */}
+      )}
     </ul>
   );
 }

@@ -3,12 +3,13 @@ import { useDispatch,useSelector } from 'react-redux';
 
 import { getUserSpotsThunk } from '../../store/spots';
 import './ManageSpots.css'
+import { useNavigate } from 'react-router-dom';
 // import { useNavigate } from 'react-router-dom';
 
 
 const ManageSpots = () => {
     const dispatch = useDispatch();
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const sessionUser = useSelector( (state) => state.session.user);
     const userSpots = useSelector( (state) => state.spot.userSpots);
@@ -26,9 +27,20 @@ const ManageSpots = () => {
 
     return(
         <>
-
+        
             <div className='manage-spots-container'>
 
+                <div className='manage-spots-header'>
+                    <h1>Manage Spots</h1>
+                    <button className='create-spot-button' onClick={() => navigate('/spots/new')}>
+                        Create a New Spot
+
+                    </button>
+
+
+                </div>
+                
+                <div className='manage-single-spot-container'>
                     {userSpots.map( (spot) => (
                         <div key={spot.id}
                              className='manage-single-spot'
@@ -42,6 +54,7 @@ const ManageSpots = () => {
 
                         </div>
                     ))}
+                </div>
 
             </div>
         </>
