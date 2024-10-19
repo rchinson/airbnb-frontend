@@ -63,7 +63,9 @@ const CreateSpot = () => {
     return(
         <div className='spot-input-container'>
             <h1>Create a New Spot</h1>
+
             <form className='spot-input-form' onSubmit={handleSubmit}>
+                
                 <div>Country</div>
                 <input 
                     type='text'

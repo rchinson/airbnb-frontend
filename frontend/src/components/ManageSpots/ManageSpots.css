@@ -21,4 +21,12 @@
     max-width: 80%;
 }
 
+.manage-spots-location-starRating {
+    display: flex;
+    justify-content: space-between;
+}
 
+
+.buttons-container {
+    border: 1px solid red;
+}
