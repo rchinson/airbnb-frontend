@@ -15,13 +15,35 @@ const demoSpotImages = [
     url: "https://upload.wikimedia.org/wikipedia/commons/3/36/Texas_capitol_day.jpg",
     preview: true,
   },
+  {
+    spotId: 1,
+    url: "https://miro.medium.com/v2/0*COnxtJpaZL3fK4KB.jpg",
+    preview: true,
+  },
+  {
+    spotId: 1,
+    url: "https://www.ttu.edu/_resources/homepage/content/images/highlight/brand.jpg",
+    preview: true,
+  },
+  {
+    spotId: 1,
+    url: "https://www.mickeyshannon.com/photos/texas-bluebonnets.jpg",
+    preview: true,
+  },
+  {
+    spotId: 1,
+    url: "https://static.texastribune.org/media/images/2016/11/10/TX2016-county-results.png",
+    preview: true,
+  },
+
+
 
   {
     spotId: 2,
     url: "https://upload.wikimedia.org/wikipedia/commons/3/3e/Miamimetroarea.jpg",
     preview: true,
   },
-
+  
   {
     spotId: 3,
     url: "https://upload.wikimedia.org/wikipedia/commons/3/37/Ohio_Stadium_infobox_crop.JPG",

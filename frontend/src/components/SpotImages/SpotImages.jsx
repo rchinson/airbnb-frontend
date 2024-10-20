@@ -2,21 +2,34 @@ import { useSelector } from 'react-redux';
 import './SpotImages.css';
 
 const SpotImages = ({ spotId }) => {
+
     const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
+
+    console.log(spot.SpotImages)
+
+    const firstImage = spot.SpotImages[0];
+    const allLastImages = spot?.SpotImages.slice(1);
 
     return(
         <div className='spot-images-container'>
 
-            {spot?.SpotImages.map( (image) => (
-
-                <div key={image.id} className='spot-image'>
-
-                    <img src={image.url} className='single-image-container' alt={`Image for Spot Number:${image.id}`} />
-
-                </div>
+            <div className='first-image-div'>
+                <img className='first-image' src={firstImage.url} alt={`Image # ${firstImage.id}`}/>
+            </div>
 
 
-            ))}
+            <div className='images-grid'>
+                {allLastImages.map( (image) => (
+
+                    <div key={image.id} className='spot-image'>
+
+                        <img src={image.url} className='single-image-container' alt={`Image for Spot Number:${image.id}`} />
+
+                    </div>
+                ))}
+            </div>
+
+
 
         </div>
     )

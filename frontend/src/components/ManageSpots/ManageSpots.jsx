@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 
-import { getUserSpotsThunk } from '../../store/spots';
+import { deleteSpotThunk, getUserSpotsThunk } from '../../store/spots';
 import './ManageSpots.css'
 import { useNavigate } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
@@ -17,7 +17,7 @@ const ManageSpots = () => {
     const sessionUser = useSelector( (state) => state.session.user);
     const userSpots = useSelector( (state) => state.spot.userSpots);
 
-    const { setModalContent } = useModal()
+    const { setModalContent, closeModal } = useModal()
 
     // console.log("SESSION USER ==",sessionUser)
 
@@ -29,9 +29,18 @@ const ManageSpots = () => {
         }
     }, [dispatch, sessionUser]);
 
-    const handleDelete = () => {
+
+
+    const handleDelete = (spotId) => {
         setModalContent(
-            <DeleteSpotModal />
+            <DeleteSpotModal 
+                
+                confirmDelete = {() => {
+                    dispatch(deleteSpotThunk(spotId)).then( ()=>{closeModal()} )
+
+                }}
+                confirmCancel = { ()=>{closeModal()} }
+            />
         )
     }
 

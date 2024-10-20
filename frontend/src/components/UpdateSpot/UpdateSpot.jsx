@@ -65,7 +65,7 @@ export const UpdateSpot = () => {
         if (formData.description < 30) Errors.description = 'Description needs 30 or more characters'; 
         if (!formData.name) Errors.name = 'Name is required';
         if (!formData.price) Errors.price = 'Price is required';
-        if (!formData.image1) Errors.image1 = 'Preview Image URL is required';
+        // if (!formData.image1) Errors.image1 = 'Preview Image URL is required';
 
         setErrors(Errors);
     }, [formData]);

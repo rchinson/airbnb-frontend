@@ -64,15 +64,12 @@ export const createSpot = (payload) => {
 export const updateSpotThunk = (spotId, spotInfo) => async (dispatch) => {
     const res = await csrfFetch(`/api/spots/${spotId}`, {
         method: "PUT",
-        headers: {
-            'content-type': 'application/json'
-        },
         body: JSON.stringify(spotInfo)
     })
 
     if (res.ok) {
         const updatedSpot = await res.json();
-        dispatch(updateSpot(updateSpot))
+        dispatch(updateSpot(updatedSpot))
         return updatedSpot;
     }
 
