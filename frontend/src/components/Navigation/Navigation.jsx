@@ -10,7 +10,8 @@ function Navigation({ isLoaded }) {
 
   return (
 
-    <div>
+    <div className='nav-container'>
+
       <div>
         <NavLink className='logo' to="/">LOGO</NavLink>
       </div>
@@ -24,6 +25,7 @@ function Navigation({ isLoaded }) {
         </div>
 
       )}
+    
     </div>
   );
 }

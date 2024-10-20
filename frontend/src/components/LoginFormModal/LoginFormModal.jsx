@@ -40,7 +40,7 @@ function LoginFormModal() {
     <>
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <label>
+        <div>
           Username or Email
           <input
             type="text"
@@ -48,8 +48,8 @@ function LoginFormModal() {
             onChange={(e) => setCredential(e.target.value)}
             required
           />
-        </label>
-        <label>
+        </div>
+        <div>
           Password
           <input
             type="password"
@@ -57,7 +57,7 @@ function LoginFormModal() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
+        </div>
         {errors.credential && (
           <p>{errors.credential}</p>
         )}

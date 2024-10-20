@@ -18,7 +18,7 @@ const demoSpotImages = [
   {
     spotId: 1,
     url: "https://miro.medium.com/v2/0*COnxtJpaZL3fK4KB.jpg",
-    preview: true,
+    preview: false,
   },
   {
     spotId: 1,
@@ -28,12 +28,12 @@ const demoSpotImages = [
   {
     spotId: 1,
     url: "https://www.mickeyshannon.com/photos/texas-bluebonnets.jpg",
-    preview: true,
+    preview: false,
   },
   {
     spotId: 1,
     url: "https://static.texastribune.org/media/images/2016/11/10/TX2016-county-results.png",
-    preview: true,
+    preview: false,
   },
 
 

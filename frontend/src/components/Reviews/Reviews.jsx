@@ -2,6 +2,8 @@ import { useEffect, } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { getAllReviewsThunk } from "../../store/reviews";
 import { useParams } from "react-router-dom";
+import { useModal } from "../../context/Modal";
+import PostReviewModal from "../PostReviewModal/PostReviewModal";
 
 
 
@@ -9,22 +11,24 @@ const Reviews = () => {
 
     const { spotId } = useParams();
     const dispatch = useDispatch();
+    const { setModalContent, closeModal } = useModal();
 
-    // console.log("SPOTid=====",spotId)
+    const reviews = useSelector( (state) => state.reviews.reviews);
+    // const sessionUser = useSelector( (state) => state.session.user);
+    // const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
 
-    const reviews = useSelector( (state) => state.reviews.reviews)
-
-    // console.log("REVIEWS------>", reviews)
 
     const userReviews = [];
 
     reviews.forEach( (element) => {
-        // console.log("ELEMENT=====",typeof element.spotId)
-        // console.log("SPOTID=====",typeof spotId)
+
         if (element.spotId === parseInt(spotId)) {
             userReviews.push(element)
         }
     })
+
+
+    // const userReviewBoolean = reviews.some( (review) => sessionUser && sessionUser.id === review.userId);
 
     // console.log("===AFTER FOREACH REVIEWS",userReviews)
 
@@ -33,7 +37,15 @@ const Reviews = () => {
     },[dispatch,spotId]);
 
     return(
+
         <div className="reviews-container">
+
+
+            <button onClick={() => setModalContent(<PostReviewModal spotId={spotId} />)}>
+            Post Your Review    
+            </button> 
+
+
 
             {userReviews.map( (review) => (
                 <div key={review.id} className="single-review-container">
@@ -42,6 +54,7 @@ const Reviews = () => {
                     <p>{review.review}</p>
                 </div>        
             ))}
+
 
         </div>
     )
