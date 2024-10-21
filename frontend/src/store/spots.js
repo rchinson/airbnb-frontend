@@ -61,20 +61,38 @@ export const createSpot = (payload) => {
 
 
 
-export const updateSpotThunk = (spotId, spotInfo) => async (dispatch) => {
-    const res = await csrfFetch(`/api/spots/${spotId}`, {
-        method: "PUT",
-        body: JSON.stringify(spotInfo)
-    })
+export const updateSpotThunk = (spotId, spotData) => async (dispatch) => {
 
-    if (res.ok) {
+    console.log("SPOT DATA=======",spotData)
+
+
+    try{
+        const res = await csrfFetch(`/api/spots/${spotId}`, {
+            method: "PUT",
+            body: JSON.stringify(spotData)
+        })
+
         const updatedSpot = await res.json();
         dispatch(updateSpot(updatedSpot))
         return updatedSpot;
+
+        // if (res.ok) {
+            
+        // } else if (!res.ok) {
+
+        //     return res;
+        // }
+
+
+    }
+
+    catch {
+        return "HELLO"
     }
 
 
 }
+
 
 export const getUserSpotsThunk = () => async (dispatch) => {
     const res = await csrfFetch('/api/spots/current');
@@ -203,7 +221,8 @@ export default function SpotsReducer( state = initialState, action) {
                 spotDetails: {
                     ...state.spotDetails,
                     [action.payload.id]: action.payload
-                }
+                },
+                userSpots: state.userSpots.map((spot) => spot.id === action.payload.id ? action.payload : spot )
             }
             return newState
         }

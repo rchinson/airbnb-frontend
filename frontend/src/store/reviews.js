@@ -1,8 +1,11 @@
 import { csrfFetch } from './csrf';
+import { getSpotDetailsThunk } from './spots';
+
 
 const ALL_REVIEWS = 'reviews/ALL_REVIEWS';
 const ADD_REVIEW = 'reviews/ADD_REVIEW';
 const DELETE_REVIEW = 'reviews/DELETE_REVIEW';
+
 
 const getAllReviews = reviews => ({
     type: ALL_REVIEWS,
@@ -10,6 +13,7 @@ const getAllReviews = reviews => ({
 });
 
 const addReview = (review) => {
+    console.log("ENTERING ADD REVIEW ACTION")
     return {
         type: ADD_REVIEW,
         payload: review,
@@ -19,15 +23,14 @@ const addReview = (review) => {
 const deleteReview = (reviewId) => {
     return{
         type: DELETE_REVIEW,
-        reviewId
+        payload: reviewId
     }
 }
 
 
 export const getAllReviewsThunk = (spotId) => async (dispatch) => {
-    const res = await fetch(`/api/spots/${spotId}/reviews`);
 
-    // console.log("RES======",res)
+    const res = await fetch(`/api/spots/${spotId}/reviews`);
 
     if (res.ok) {
         const payload = await res.json();
@@ -38,27 +41,51 @@ export const getAllReviewsThunk = (spotId) => async (dispatch) => {
 };
 
 export const addReviewThunk = (review, spotId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/spots/${spotId}/`, {
+    // console.log('ENTERING THUNK')
+
+    const properlyFormatReview = {...review, spotId: parseInt(spotId) }
+
+    // console.log("PROPERTLY FORMATEED", {properlyFormatReview})
+
+    const res = await csrfFetch(`/api/spots/${spotId}/reviews`, {
         method: "POST",
-        headers: {
-            'content-type': 'application/json',
-        },
-        body: JSON.stringify(review)
+
+        body: JSON.stringify(properlyFormatReview)
     })
 
+    // console.log('RES======',res)
+
     if (res.ok) {
-        const review = await res.json();
-        dispatch(addReview(review));
-        return review
+        const reviewRes = await res.json();
+
+        const formattedReviewRes = { ...reviewRes, spotId: parseInt(spotId)}
+
+        // console.log("REVIEW AFTER RES OK",{formattedReviewRes})
+        dispatch(addReview(formattedReviewRes));
+        dispatch(getSpotDetailsThunk(spotId));
+        dispatch(getAllReviewsThunk(spotId))
+        return formattedReviewRes
     }
+
 };
 
-export const deleteReviewThunk = (reviewId) => async (dispatch) => {
-    const res = await csrfFetch(`/api/reviews?${reviewId}`, {
+
+
+
+export const deleteReviewThunk = (reviewId, spotId) => async (dispatch) => {
+    console.log("ENTERING DELETE THUNK")
+
+    console.log("REVIEWID______",reviewId)
+
+    const res = await csrfFetch(`/api/reviews/${reviewId}`, {
         method: 'DELETE'
     })
+
+
+    
     if (res.ok) {
         dispatch(deleteReview(reviewId))
+        dispatch(getAllReviewsThunk(spotId))
     }
 };
 

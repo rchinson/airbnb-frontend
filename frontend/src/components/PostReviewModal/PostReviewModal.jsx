@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addReviewThunk } from '../../store/reviews';
-// import { useModal } from '../../context/Modal';
+
 import StarRating from '../StarRating/StarRating';
 import { useModal } from '../../context/Modal';
+import './PostReviewModal.css'
 
 
 const PostReviewModal = ({ spotId }) => {
@@ -16,6 +17,7 @@ const PostReviewModal = ({ spotId }) => {
 
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
 
         const reviewErrors = {};
@@ -33,7 +35,9 @@ const PostReviewModal = ({ spotId }) => {
             return;
         }
 
-        await dispatch(addReviewThunk({ review, stars }, spotId));
+        console.log("TYPEOF=====",typeof parseInt(spotId) );
+
+        dispatch(addReviewThunk({ review, stars }, parseInt(spotId)));
 
         closeModal();
 
@@ -58,6 +62,9 @@ const PostReviewModal = ({ spotId }) => {
                 </div>
 
 
+                <button type='submit' className='submit-button'>
+                    Submit Your Review
+                </button>
 
 
             </form>

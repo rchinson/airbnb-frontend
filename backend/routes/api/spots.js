@@ -560,7 +560,7 @@ router.post("/", validateSpot, requireAuth, async (req, res) => {
 
 router.put("/:spotId", validateSpot, requireAuth, async (req, res) => {
   const { spotId } = req.params;
-  const { address, city, state, country, lat, lng, name, description, price } =
+  const { address, city, state, country, name, description, price } =
     req.body;
 
   if (!spotId) {
@@ -575,8 +575,8 @@ router.put("/:spotId", validateSpot, requireAuth, async (req, res) => {
   if (!city) errors.city = "City is required";
   if (!state) errors.state = "State is required";
   if (!country) errors.country = "Country is required";
-  if (!lat || isNaN(lat)) errors.lat = "Latitude is not valid";
-  if (!lng || isNaN(lng)) errors.lng = "Longitude is not valid";
+  // if (!lat || isNaN(lat)) errors.lat = "Latitude is not valid";
+  // if (!lng || isNaN(lng)) errors.lng = "Longitude is not valid";
   if (!name || name.length > 50)
     errors.name = "Name must be less than 50 characters";
   if (!description) errors.description = "Description is required";
@@ -605,8 +605,8 @@ router.put("/:spotId", validateSpot, requireAuth, async (req, res) => {
   spot.city = city || spot.city;
   spot.state = state || spot.state;
   spot.country = country || spot.country;
-  spot.lat = lat || spot.lat;
-  spot.lng = lng || spot.lng;
+  // spot.lat = lat || spot.lat;
+  // spot.lng = lng || spot.lng;
   spot.name = name || spot.name;
   spot.description = description || spot.description;
   spot.price = price || spot.price;
@@ -620,8 +620,8 @@ router.put("/:spotId", validateSpot, requireAuth, async (req, res) => {
     city: spot.city,
     state: spot.state,
     country: spot.country,
-    lat: spot.lat,
-    lng: spot.lng,
+    // lat: spot.lat,
+    // lng: spot.lng,
     name: spot.name,
     description: spot.description,
     price: spot.price,

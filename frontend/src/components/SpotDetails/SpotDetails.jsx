@@ -15,7 +15,7 @@ function SpotDetails() {
 
     const spot = useSelector( (state) => state.spot?.spotDetails[spotId])
 
-    console.log("SPOT =====",spot)
+    // console.log("SPOT =====",spot)
 
     // console.log("SPOT SELECTOR ___ ",spot)
 

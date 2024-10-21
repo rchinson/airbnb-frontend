@@ -8,7 +8,7 @@
     font-family: Arial, sans-serif;
 }
 
-.spot-input-container h1 {
+.spot-input-container h2 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
@@ -41,4 +41,8 @@ input, textarea {
 
 .submit-button:hover {
     background-color: rgb(180, 95, 95);
+}
+
+.error{
+    color: red;
 }

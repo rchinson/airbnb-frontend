@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getSpotDetailsThunk, updateSpotThunk } from '../../store/spots';
 import './UpdateSpot.css'
 
 
 export const UpdateSpot = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     
     const { spotId } = useParams();
     const spot = useSelector((state) => state.spot.spotDetails[spotId]);
@@ -78,7 +78,7 @@ export const UpdateSpot = () => {
             return;
         }
 
-        try {
+        // try {
             const updatedSpot = {
                 address: formData.address,
                 city: formData.city,
@@ -89,18 +89,29 @@ export const UpdateSpot = () => {
                 price: parseFloat(formData.price),
             };
 
-            const response = await dispatch(updateSpotThunk(spotId, updatedSpot));
+            const res = await dispatch(updateSpotThunk(spotId, updatedSpot));
 
-            if (response) {
-                navigate(`/spots/${spotId}`);
+            console.log(spotId)
+            // navigate(`/spots/${spotId}`)
+
+
+            if (!res.ok) {
+                const updateErrors = await res.json();
+                console.log(updateErrors)
+                return setErrors(updateErrors);
             }
 
-        } catch (res) {
-            const data = await res.json();
-            if (data && data.errors) {
-                setErrors(data.errors);
-            }
-        }
+            
+
+
+        // } 
+        // catch (res) {
+
+            // const data = await res.json();
+            // if (data && data.errors) {
+            //     setErrors(data.errors);
+            // }
+        // }
     };
 
     return (

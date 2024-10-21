@@ -1,9 +1,10 @@
 import { useEffect, } from "react";
 import { useDispatch,useSelector } from "react-redux";
-import { getAllReviewsThunk } from "../../store/reviews";
+import { deleteReviewThunk, getAllReviewsThunk } from "../../store/reviews";
 import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import PostReviewModal from "../PostReviewModal/PostReviewModal";
+import DeleteReviewModal from "../DeleteReviewModal/DeleteReviewModal";
 
 
 
@@ -12,47 +13,81 @@ const Reviews = () => {
     const { spotId } = useParams();
     const dispatch = useDispatch();
     const { setModalContent, closeModal } = useModal();
-
     const reviews = useSelector( (state) => state.reviews.reviews);
-    // const sessionUser = useSelector( (state) => state.session.user);
-    // const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
+
+    const sessionUser = useSelector( (state) => state.session.user);
+    const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
 
 
-    const userReviews = [];
+
+
+
+    const spotReviews = [];
 
     reviews.forEach( (element) => {
 
-        if (element.spotId === parseInt(spotId)) {
-            userReviews.push(element)
+        if (parseInt(element.spotId) === parseInt(spotId)) {
+            spotReviews.push(element)
         }
     })
 
+    const userReviewBoolean = spotReviews.some( (review) => sessionUser && sessionUser.id === review.userId);
 
-    // const userReviewBoolean = reviews.some( (review) => sessionUser && sessionUser.id === review.userId);
 
-    // console.log("===AFTER FOREACH REVIEWS",userReviews)
+    // console.log("===AFTER FOREACH REVIEWS",spotReviews)
 
     useEffect( () => {
         dispatch(getAllReviewsThunk(spotId))
     },[dispatch,spotId]);
+
+    const handleDelete = (reviewId) => {
+        setModalContent(
+            <DeleteReviewModal 
+                confirmDelete={() => {
+                    dispatch(deleteReviewThunk(reviewId, spotId)).then(() => {closeModal()})
+            }}
+
+                cancelDelete={() => {closeModal()}}
+            />
+        )
+    }
+
+
 
     return(
 
         <div className="reviews-container">
 
 
-            <button onClick={() => setModalContent(<PostReviewModal spotId={spotId} />)}>
-            Post Your Review    
-            </button> 
+            {sessionUser && spot && sessionUser.id !== spot.ownerId && !userReviewBoolean && ( 
+
+                <button onClick={() => setModalContent(<PostReviewModal spotId={spotId} />)}>
+                    Post Your Review    
+                </button> 
+
+            )}
 
 
 
-            {userReviews.map( (review) => (
+
+
+
+            {spotReviews.map( (review) => (
+
                 <div key={review.id} className="single-review-container">
                     
-                    <h3>{review.User?.firstName}</h3>
-                    <p>{review.review}</p>
-                </div>        
+                    <h3 className="review-name">{review.User?.firstName}</h3>
+                    <p className="review-text">{review.review}</p>
+
+                    {sessionUser && sessionUser.id === review.userId && (
+                        <button className="delete-review-button" onClick={() => handleDelete(review.id)}>
+                            Delete Review
+                        </button>
+                    )}
+                </div>
+
+
+
             ))}
 
 

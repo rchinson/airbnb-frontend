@@ -5,9 +5,9 @@ const SpotImages = ({ spotId }) => {
 
     const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
 
-    console.log(spot.SpotImages)
+    // console.log(spot.SpotImages)
 
-    const firstImage = spot.SpotImages[0];
+    const firstImage = spot?.SpotImages[0];
     const allLastImages = spot?.SpotImages.slice(1);
 
     return(
