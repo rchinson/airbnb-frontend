@@ -1,69 +1,11 @@
-/* .spot-details-wrapper {
-    width: 100%;
-    border: 1px solid red;
-    display: flex;
-    justify-content: center;
-}
-
-.spot-details-container {
-    max-width: 1000px;
-    border: 1px solid black;
-}
-
-
-
-.spot-info-reserve-container {
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.spot-reserve-container {
-    border: 2px solid black;
-    border-radius: 10px;
-}
-
-.spot-price-reviews {
-    display: flex;
-}
-
-.spot-price {
-    padding-left: 6px;
-}
-
-.spot-reserve-reviews {
-    display: flex;
-    align-items: center;
-    margin: 0px 8px;
-    
-}
-
-.reserve-button-container {
-    display: flex;
-    justify-content: center;
-
-}
-
-.reserve-button {
-    background-color: lightcoral;
-    font-size: 12px;
-    color: white;
-    min-width: 200px;
-    min-height: 30px;
-    border-radius: 2px;
-
-} */
-
-
-
-
 
 
 .spot-details-wrapper {
     display: flex;
     justify-content: center;
     padding: 40px 20px;
-    background-color: #f9f9f9;
+    background-color: #f0eee0;
+    border-radius: 8px;
 }
 
 /* Container for the spot details */

@@ -2,4 +2,47 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    list-style: none;
+    padding: 16px 40px;
+}
+
+.right-buttons-div {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #ff5a5f;
+}
+
+.logo svg {
+    margin-right: 8px;
+    color: #ff5a5f;
+}
+
+.create-spot-btn li {
+    font-size: 16px;
+    font-weight: 600;
+    color: #ff5a5f;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    margin-right: 24px;
+}
+
+.create-spot-btn li:hover {
+    color: #e0484d;
+}
+
+.nav-container div:last-child {
+    margin-left: auto;
 }

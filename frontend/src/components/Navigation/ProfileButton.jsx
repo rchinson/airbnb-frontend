@@ -7,6 +7,7 @@ import LoginFormModal from "../LoginFormModal/LoginFormModal.jsx";
 import SignupFormModal from "../SignupFormModal/index";
 import './ProfileButton.css';
 import { useNavigate } from "react-router-dom";
+import { IoMenu } from "react-icons/io5";
 
 
 
@@ -43,26 +44,24 @@ function ProfileButton({ user }) {
     e.preventDefault();
     dispatch(sessionActions.logout());
     closeMenu();
+    navigate('/')
   };
 
   const ulClassName = "profile-dropdown" + (showMenu ? "" : " hidden");
-
-  return (
+return (
     <div className="profile-container">
 
       <button className='profile-button' onClick={toggleMenu}>
-        <FaUserCircle />
+        <IoMenu size='18' />
+        <FaUserCircle size='18' />
       </button>
-
-
-
       <ul className={ulClassName} ref={ulRef}>
 
         {user ? (
           <div className="logged-in-profile">
             <li className="username">Hello, {user.username}</li>
             <li className="user-email">{user.email}</li>
-              
+
             <li className="manage-spots" onClick={() => navigate(`/spots/current`)}>Manage Spots</li>
 
             <li>

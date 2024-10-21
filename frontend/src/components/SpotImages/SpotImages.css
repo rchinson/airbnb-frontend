@@ -1,15 +1,3 @@
-/* .single-image-container {
-    max-width: 30%;
-}
-
-.first-image {
-    max-width: 30%;
-}
-
-.spot-images-container {
-    display: flex;
-} */
- 
 
 .spot-images-container {
   display: grid;

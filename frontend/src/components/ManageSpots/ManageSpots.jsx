@@ -19,9 +19,10 @@ const ManageSpots = () => {
 
     const { setModalContent, closeModal } = useModal()
 
-    // console.log("SESSION USER ==",sessionUser)
 
-    // console.log("USER SPOTS ====" , userSpots)
+
+    
+
 
     useEffect( () => {
         if (sessionUser) {
@@ -43,6 +44,8 @@ const ManageSpots = () => {
             />
         )
     }
+
+    console.log("AVGRATING----",userSpots)
 
 
     return(
