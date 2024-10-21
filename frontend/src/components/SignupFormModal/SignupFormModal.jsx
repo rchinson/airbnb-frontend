@@ -128,7 +128,7 @@ return setErrors({
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
           />
-</label>
+        </label>
         {errors.confirmPassword && (
           <p>{errors.confirmPassword}</p>
         )}
