@@ -1,5 +1,4 @@
 
-
 .spots-container {
     display: flex;
     flex-wrap: wrap;
@@ -10,6 +9,7 @@
     background-color: #f0eee0;
     border-radius: 8px;
 }
+
 
 .single-spot {
     position: relative;
@@ -24,23 +24,11 @@
     overflow: hidden;
 }
 
-.spot-title {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 4px;
-    font-size: 14px;
-    z-index: 0;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+.single-spot:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.single-spot:hover .spot-title {
-    opacity: 1;
-}
 
 .spot-image {
     width: 100%;
@@ -52,7 +40,28 @@
     z-index: 1;
 }
 
-/* Location and rating section */
+
+.spot-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    text-align: center;
+}
+
+.single-spot:hover .spot-name {
+    opacity: 1;
+}
+
+
 .single-spot-location-rating {
     display: flex;
     justify-content: space-between;
@@ -65,26 +74,22 @@
     color: gold;
 }
 
-/* Price text */
+
 .single-spot p:last-of-type {
     font-weight: bold;
     color: #333;
     margin-top: 4px;
 }
 
+
 @media (min-width: 1650px) {
-    
     .spots-container {
         gap: 40px;
     }
-
 }
 
-
 @media (min-width: 1760px) {
-    
     .spots-container {
         gap: 80px;
     }
-
 }

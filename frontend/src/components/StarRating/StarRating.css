@@ -1,4 +1,4 @@
-/* Star Rating Container */
+
 .star-rating-container {
   display: flex;
   justify-content: center;
@@ -6,7 +6,7 @@
   margin-top: 10px;
 }
 
-/* Individual Star Styling */
+
 .star {
   font-size: 2rem;
   color: #ccc;
@@ -14,17 +14,17 @@
   transition: color 0.3s, transform 0.2s;
 }
 
-/* Filled Star */
+
 .star.filled {
-  color: #ffd700; /* Gold color for filled stars */
+  color: #ffd700; 
 }
 
-/* Hover Effect */
+
 .star:hover {
-  transform: scale(1.2); /* Slight zoom on hover */
+  transform: scale(1.2); 
 }
 
-/* Ensuring Consistent Layout */
+
 .star-rating-container span {
   display: inline-block;
   line-height: 1;

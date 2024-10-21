@@ -37,7 +37,7 @@ function SpotList() {
                          onMouseOut={() => setToolTip(null)}
                          onClick={() => handleClick(spot.id)}
                     >
-                       {toolTip === spot.id && <div>{spot.name}</div>}
+                       {toolTip === spot.id && <div className='spot-name'>{spot.name}</div>}
 
                     <img className='spot-image' src={spot.previewImage} alt={spot.name} />
                     
