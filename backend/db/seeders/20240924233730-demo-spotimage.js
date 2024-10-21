@@ -23,7 +23,7 @@ const demoSpotImages = [
   {
     spotId: 1,
     url: "https://www.ttu.edu/_resources/homepage/content/images/highlight/brand.jpg",
-    preview: true,
+    preview: false,
   },
   {
     spotId: 1,
@@ -44,6 +44,12 @@ const demoSpotImages = [
     preview: true,
   },
   
+
+
+
+
+
+
   {
     spotId: 3,
     url: "https://upload.wikimedia.org/wikipedia/commons/3/37/Ohio_Stadium_infobox_crop.JPG",
