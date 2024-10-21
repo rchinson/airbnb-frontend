@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getAllSpotsThunk } from '../../store/spots';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
 
 
 
@@ -25,7 +26,7 @@ function SpotList() {
 
 
     return(
-        <>
+        <div className='spots-wrapper'>
 
             <div className='spots-container'>
 
@@ -45,15 +46,15 @@ function SpotList() {
                             {spot.city}, {spot.state}
                         </p>
                         <p>
-                            {spot.avgRating ? spot.avgRating.toFixed(1) : "new"}
+                            <FaStar /> {spot.avgRating ? spot.avgRating.toFixed(1) : "new"}
                         </p>
                     </div>
-                        <p>{`$${spot.price}night`}</p>
+                        <p>{`$${spot.price} night`}</p>
                     </div>
                 ))}
             </div>
 
-        </>
+        </div>
     );
 }
 

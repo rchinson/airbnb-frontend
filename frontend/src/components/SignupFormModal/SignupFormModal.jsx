@@ -68,8 +68,8 @@ return setErrors({
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+      <h1 className='signup-text'>Sign Up</h1>
+      <form className='signup-form' onSubmit={handleSubmit}>
         <label>
           Email
           <input
@@ -132,7 +132,7 @@ return setErrors({
         {errors.confirmPassword && (
           <p>{errors.confirmPassword}</p>
         )}
-        <button type="submit"
+        <button className='signup-button' type="submit"
             disabled={Object.values(errors).length > 0}
         >Sign Up</button>
       </form>
