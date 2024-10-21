@@ -46,7 +46,7 @@ function SpotList() {
                             {spot.city}, {spot.state}
                         </p>
                         <p>
-                            <FaStar /> {spot.avgRating ? spot.avgRating.toFixed(1) : "new"}
+                            <FaStar /> {spot.avgRating ? spot.avgRating : "new"}
                         </p>
                     </div>
                         <p>{`$${spot.price} night`}</p>
