@@ -85,7 +85,7 @@ function SpotDetails() {
 
                 <div className='spot-details-reviews'>
                     <p className='spot-reserve-reviews'>
-                    <FaStar /> {spot.numReviews ? `${parseInt((spot.avgStarRating).toFixed(1))} · ${spot.numReviews} reviews` : 'new'}
+                    <FaStar /> {spot.numReviews ? `${spot.avgStarRating} · ${spot.numReviews} reviews` : 'new'}
                     </p>
 
                     <Reviews />
