@@ -82,7 +82,7 @@ const ManageSpots = () => {
 
                                 <div className='manage-spots-starRating'>
                                     <FaStar /> 
-                                    {spot.avgRating ? spot.avgRating : "new"}
+                                    { Number(spot.avgRating) !== 0 ? Number(spot.avgRating).toFixed(1) : "new"}
                                 </div>
 
 

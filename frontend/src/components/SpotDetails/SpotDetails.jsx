@@ -12,6 +12,7 @@ import { FaStar } from 'react-icons/fa';
 function SpotDetails() {
     const { spotId } = useParams();
     const dispatch = useDispatch();
+ 
 
     const spot = useSelector( (state) => state.spot?.spotDetails[spotId])
 
@@ -19,6 +20,7 @@ function SpotDetails() {
 
     // console.log("SPOT SELECTOR ___ ",spot)
 
+    // console.log("AVG STAR RATING ======",spotId.avgStarRating)
 
     useEffect( () => {
         dispatch(getSpotDetailsThunk(spotId))
@@ -64,7 +66,7 @@ function SpotDetails() {
                             <p className='spot-price'>{`$${spot.price} night`}</p>
                             
                             <div className='spot-reserve-reviews'>
-                                <FaStar /> {spot.numReviews ? `${spot.avgStarRating} · ${spot.numReviews} reviews` : 'new'}                         
+                                <FaStar /> { Number(spot.avgRating) !== 0 ? Number(spot.avgRating).toFixed(1) : "new"}                         
                             </div>
 
                         </div>
@@ -85,7 +87,7 @@ function SpotDetails() {
 
                 <div className='spot-details-reviews'>
                     <p className='spot-reserve-reviews'>
-                    <FaStar /> {spot.numReviews ? `${spot.avgStarRating} · ${spot.numReviews} reviews` : 'new'}
+                    <FaStar /> { Number(spot.avgRating) !== 0 ? Number(spot.avgRating).toFixed(1) : "new"}
                     </p>
 
                     <Reviews />
