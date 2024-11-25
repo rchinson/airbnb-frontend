@@ -34,7 +34,6 @@ const Reviews = () => {
     const userReviewBoolean = spotReviews.some( (review) => sessionUser && sessionUser.id === review.userId);
 
 
-    // console.log("===AFTER FOREACH REVIEWS",spotReviews)
 
     useEffect( () => {
         dispatch(getAllReviewsThunk(spotId))
@@ -76,14 +75,17 @@ const Reviews = () => {
 
                 <div key={review.id} className="single-review-container">
                     
+                  
                     <h3 className="review-name">{review.User?.firstName}</h3>
                     <p className="review-text">{review.review}</p>
+
 
                     {sessionUser && sessionUser.id === review.userId && (
                         <button className="delete-review-button" onClick={() => handleDelete(review.id)}>
                             Delete Review
                         </button>
                     )}
+
                 </div>
 
 

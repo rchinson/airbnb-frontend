@@ -12,6 +12,8 @@ function SpotList() {
     const spotsArr = Object.values(spots)
     const [ toolTip, setToolTip] = useState(null);
 
+    // console.log("SPOTSARR----",spotsArr);
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 

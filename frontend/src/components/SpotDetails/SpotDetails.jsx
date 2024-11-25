@@ -16,11 +16,12 @@ function SpotDetails() {
 
     const spot = useSelector( (state) => state.spot?.spotDetails[spotId])
 
-    // console.log("SPOT =====",spot)
+    console.log("SPOT =====",spot)
 
     // console.log("SPOT SELECTOR ___ ",spot)
 
-    // console.log("AVG STAR RATING ======",spotId.avgStarRating)
+    console.log("AVG STAR RATING ======",spot?.avgStarRating)
+
 
     useEffect( () => {
         dispatch(getSpotDetailsThunk(spotId))
@@ -66,7 +67,7 @@ function SpotDetails() {
                             <p className='spot-price'>{`$${spot.price} night`}</p>
                             
                             <div className='spot-reserve-reviews'>
-                                <FaStar /> { Number(spot.avgRating) !== 0 ? Number(spot.avgRating).toFixed(1) : "new"}                         
+                                <FaStar /> { Number(spot?.avgStarRating) !== 0 ? Number(spot?.avgStarRating).toFixed(1) : "new"}                         
                             </div>
 
                         </div>
@@ -87,7 +88,7 @@ function SpotDetails() {
 
                 <div className='spot-details-reviews'>
                     <p className='spot-reserve-reviews'>
-                    <FaStar /> { Number(spot.avgRating) !== 0 ? Number(spot.avgRating).toFixed(1) : "new"}
+                    <FaStar /> { Number(spot?.avgStarRating) !== 0 ? Number(spot?.avgStarRating).toFixed(1) : "new"}
                     </p>
 
                     <Reviews />
