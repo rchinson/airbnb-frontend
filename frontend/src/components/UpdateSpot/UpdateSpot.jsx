@@ -27,28 +27,6 @@ export const UpdateSpot = () => {
     const [hasSubmitted, setHasSubmitted] = useState(false);
 
 
-
-    useEffect(() => {
-        dispatch(getSpotDetailsThunk(spotId));
-    }, [dispatch, spotId]);
-
-
-    useEffect(() => {
-
-        if (spot) {
-            setFormData({
-                country: spot.country || '',
-                address: spot.address || '',
-                city: spot.city || '',
-                state: spot.state || '',
-                description: spot.description || '',
-                name: spot.name || '',
-                price: spot.price || '',
-            });
-        }
-    }, [spot]);
-
-
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.id]: e.target.value });
     };
@@ -91,14 +69,14 @@ export const UpdateSpot = () => {
 
             const res = await dispatch(updateSpotThunk(spotId, updatedSpot));
 
-            console.log("SPOT ID======",spotId)
+            // console.log("SPOT ID======",spotId)
 
             navigate(`/spots/${spotId}`)
 
 
             if (!res.ok) {
                 const updateErrors = await res.json();
-                console.log(updateErrors)
+                // console.log(updateErrors)
                 return setErrors(updateErrors);
             }
 
@@ -114,6 +92,29 @@ export const UpdateSpot = () => {
             }
         }
     };
+
+
+    useEffect(() => {
+        dispatch(getSpotDetailsThunk(spotId));
+    }, [dispatch, spotId]);
+
+
+    useEffect(() => {
+
+        if (spot) {
+            setFormData({
+                country: spot.country || '',
+                address: spot.address || '',
+                city: spot.city || '',
+                state: spot.state || '',
+                description: spot.description || '',
+                name: spot.name || '',
+                price: spot.price || '',
+            });
+        }
+    }, [spot]);
+
+
 
     return (
         <div className="update-spot-container">

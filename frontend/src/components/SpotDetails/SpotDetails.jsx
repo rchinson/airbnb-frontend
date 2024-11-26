@@ -16,17 +16,19 @@ function SpotDetails() {
 
     const spot = useSelector( (state) => state.spot?.spotDetails[spotId])
 
-    console.log("SPOT =====",spot)
+    // console.log("SPOT =====",spot)
 
     // console.log("SPOT SELECTOR ___ ",spot)
 
-    console.log("AVG STAR RATING ======",spot?.avgStarRating)
+    // console.log("AVG STAR RATING ======",spot?.avgStarRating)
 
 
     useEffect( () => {
         dispatch(getSpotDetailsThunk(spotId))
 
     }, [dispatch, spotId])
+
+    
 
     const handleClick = () => {
         alert('Feature coming soon')

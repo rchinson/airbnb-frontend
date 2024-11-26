@@ -63,7 +63,7 @@ export const createSpot = (payload) => {
 
 export const updateSpotThunk = (spotId, spotData) => async (dispatch) => {
 
-    // console.log("SPOT DATA=======",spotData)
+    console.log("SPOT DATA=======",spotData)
 
 
     try{
