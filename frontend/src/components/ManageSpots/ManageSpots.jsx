@@ -17,11 +17,10 @@ const ManageSpots = () => {
     const sessionUser = useSelector( (state) => state.session.user);
     const userSpots = useSelector( (state) => state.spot.userSpots);
 
-    const { setModalContent, closeModal } = useModal()
+    const { setModalContent, closeModal } = useModal();
 
 
-
-    
+    console.log("USERSPOTS----",userSpots);
 
 
     useEffect( () => {
@@ -45,7 +44,7 @@ const ManageSpots = () => {
         )
     }
 
-    console.log("AVGRATING----",userSpots)
+
 
 
     return(

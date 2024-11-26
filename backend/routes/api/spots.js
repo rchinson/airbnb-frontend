@@ -134,7 +134,7 @@ router.get(
         price: spot.price,
         createdAt: spot.createdAt,
         updatedAt: spot.updatedAt,
-        avgRating: spot.dataValues.avgStarRating || null,
+        avgRating: spot.dataValues.avgRating || null,
         previewImage,
       };
     });

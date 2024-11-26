@@ -63,7 +63,7 @@ export const createSpot = (payload) => {
 
 export const updateSpotThunk = (spotId, spotData) => async (dispatch) => {
 
-    console.log("SPOT DATA=======",spotData)
+    // console.log("SPOT DATA=======",spotData)
 
 
     try{
@@ -87,7 +87,7 @@ export const updateSpotThunk = (spotId, spotData) => async (dispatch) => {
     }
 
     catch {
-        return "HELLO"
+        // return "HELLO"
     }
 
 
@@ -97,11 +97,16 @@ export const updateSpotThunk = (spotId, spotData) => async (dispatch) => {
 export const getUserSpotsThunk = () => async (dispatch) => {
     const res = await csrfFetch('/api/spots/current');
 
+    
     if (res.ok) {
         const userSpots = await res.json();
         dispatch(getUserSpots(userSpots))
+        console.log(userSpots)
+        return userSpots
     }
 }
+
+
 
 export const getSpotDetailsThunk = (spotId) => async (dispatch) => {
     const res = await fetch(`/api/spots/${spotId}`)
@@ -119,6 +124,7 @@ export const getAllSpotsThunk = () => async (dispatch) => {
     if (res.ok) {
         const payload = await res.json();
         dispatch(allSpots(payload));
+        return payload;
     }
 }
 
