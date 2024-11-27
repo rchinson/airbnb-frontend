@@ -18,11 +18,9 @@ function SpotDetails() {
     
     const reviews = useSelector( (state) => state.reviews?.reviews);
 
-    // console.log("SPOT =====",spot)
 
     // console.log("SPOT SELECTOR ___ ",spot)
 
-    // console.log("AVG STAR RATING ======",spot?.avgStarRating)
 
 
     useEffect( () => {

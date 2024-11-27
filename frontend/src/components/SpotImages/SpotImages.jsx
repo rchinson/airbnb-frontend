@@ -8,7 +8,7 @@ const SpotImages = ({ spotId }) => {
     return <div>Loading images...</div>;
   }
 
-  console.log("SPOT", spot);
+  // console.log("SPOT", spot);
 
   const firstImage = spot?.SpotImages[0];
   const allLastImages = spot?.SpotImages.slice(1);
