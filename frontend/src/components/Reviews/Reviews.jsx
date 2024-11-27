@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import PostReviewModal from "../PostReviewModal/PostReviewModal";
 import DeleteReviewModal from "../DeleteReviewModal/DeleteReviewModal";
-import { getSpotDetailsThunk } from "../../store/spots";
+
 
 
 
