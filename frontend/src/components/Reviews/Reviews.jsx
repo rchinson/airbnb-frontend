@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import PostReviewModal from "../PostReviewModal/PostReviewModal";
 import DeleteReviewModal from "../DeleteReviewModal/DeleteReviewModal";
+import { getSpotDetailsThunk } from "../../store/spots";
 
 
 
@@ -19,7 +20,7 @@ const Reviews = () => {
     const spot = useSelector( (state) => state.spot.spotDetails[spotId]);
 
 
-
+    console.log('REVIEWSSPOT',spot)
 
 
     const spotReviews = [];
@@ -35,10 +36,6 @@ const Reviews = () => {
 
 
 
-    useEffect( () => {
-        dispatch(getAllReviewsThunk(spotId))
-    },[dispatch,spotId]);
-
     const handleDelete = (reviewId) => {
         setModalContent(
             <DeleteReviewModal 
@@ -51,6 +48,10 @@ const Reviews = () => {
         )
     }
 
+    useEffect( () => {
+        dispatch(getAllReviewsThunk(spotId))
+    },[dispatch,spotId]);
+    
 
 
     return(

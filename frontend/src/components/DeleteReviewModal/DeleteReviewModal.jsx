@@ -1,6 +1,11 @@
 import './DeleteReviewModal.css';
 
 const DeleteReviewModal = ({ confirmDelete, cancelDelete }) => {
+
+
+
+    
+
     return(
         <div className='delete-modal-container'>
             <h2>Confirm Delete</h2>

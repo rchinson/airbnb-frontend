@@ -35,7 +35,7 @@ const PostReviewModal = ({ spotId }) => {
             return;
         }
 
-        console.log("TYPEOF=====",typeof parseInt(spotId) );
+        // console.log("TYPEOF=====",typeof parseInt(spotId) );
 
         dispatch(addReviewThunk({ review, stars }, parseInt(spotId)));
 
