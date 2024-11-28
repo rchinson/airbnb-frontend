@@ -92,7 +92,8 @@ const Reviews = () => {
         )}
 
 
-      {spotReviews
+      {spotReviews.length > 0  ? (
+      spotReviews 
       .sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt))
       .map((review) => (
         <div key={review.id} className="single-review-container">
@@ -107,9 +108,15 @@ const Reviews = () => {
             >
               Delete Review
             </button>
-          )}
+            )}
         </div>
-      ))}
+        ))
+    ) : sessionUser && sessionUser.id !== spot.ownerId ? (
+        <p className="no-review-p">Be the first to post a review!</p>
+    ) : (
+        <p className="no-review-p">No reviews yet.</p>
+    )}
+
     </div>
 
   );
