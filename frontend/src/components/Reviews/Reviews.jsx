@@ -15,9 +15,9 @@ const Reviews = () => {
   const sessionUser = useSelector((state) => state.session.user);
   const spot = useSelector((state) => state.spot.spotDetails[spotId]);
 
-  console.log("IN REVIEWS -- SPOT", spot);
+  // console.log("IN REVIEWS -- SPOT", spot);
 
-  console.log("IN REVIEWS -- REVIEWS ==", reviews);
+  // console.log("IN REVIEWS -- REVIEWS ==", reviews);
 
 
 
@@ -29,7 +29,7 @@ const Reviews = () => {
     }
   });
 
-  console.log('IN REVIEWS -- SPOTREVIEWS OBJ ===',spotReviews)
+  // console.log('IN REVIEWS -- SPOTREVIEWS OBJ ===',spotReviews)
 
   const userReviewBoolean = spotReviews.some(
     (review) => sessionUser && sessionUser.id === review.userId

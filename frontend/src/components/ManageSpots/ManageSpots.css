@@ -130,3 +130,12 @@
 .delete-spot:hover {
     background-color: #bb3c40;
 }
+
+.manage-spots-price-container {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    text-align: left; 
+    width: 100%; 
+    margin-top: 8px;
+}

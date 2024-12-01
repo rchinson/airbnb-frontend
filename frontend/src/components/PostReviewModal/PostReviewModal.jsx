@@ -62,7 +62,7 @@ const PostReviewModal = ({ spotId }) => {
                 </div>
 
 
-                <button type='submit' className='submit-button'>
+                <button type='submit' className='submit-button' disabled={false}>
                     Submit Your Review
                 </button>
 
