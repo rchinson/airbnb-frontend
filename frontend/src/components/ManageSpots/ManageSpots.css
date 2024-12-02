@@ -57,6 +57,9 @@
     align-items: center;
 }
 
+.manage-single-spot:hover {
+    cursor: pointer;
+}
 
 
 .manage-spot-image {

@@ -14,14 +14,20 @@ function LoginFormModal() {
   const { closeModal } = useModal();
 
   useEffect(() => {
-    const disable = {};
+    const disabled = {};
+      if (
+      !credential &&
+      !password
+    ) {
+      disabled.form = "Please fill out the login-up form";
+    }
     if (credential.length < 4) {
-      disable.credential = `Username must be longer than 4 characters`;
+      disabled.credential = `Username must be longer than 4 characters`;
     }
     if (password.length < 6) {
-      disable.password = `Password must be longer than 6 characters`;
+      disabled.password = `Password must be longer than 6 characters`;
     }
-    setErrors(disable);
+    setErrors(disabled);
   }, [credential, password]);
 
   const handleSubmit = (e) => {

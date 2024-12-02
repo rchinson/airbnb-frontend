@@ -56,7 +56,10 @@ const ManageSpots = () => {
 
         <div className="manage-single-spot-container">
           {userSpots.map((spot) => (
-            <div key={spot.id} className="manage-single-spot">
+            <div key={spot.id} className="manage-single-spot" onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(`/spots/${spot.id}`);
+                  }}>
               <div>{spot.name}</div>
 
               <img
